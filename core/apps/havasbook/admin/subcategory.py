@@ -12,12 +12,4 @@ class SubcategoryAdmin(ModelAdmin):
     )
 
 
-    search_fields = ['name', 'category__gender__gender']
-    
-    def get_search_results(self, request, queryset, search_term):
-        queryset, use_distinct = super().get_search_results(request, queryset, search_term)
-
-        if search_term.lower() in ['male', 'female']: 
-            queryset = queryset.filter(category__gender__gender__iexact=search_term)
-
-        return queryset, use_distinct
+    search_fields = ['name']  # yoki o'zingizning modelingizdagi qidiriladigan maydon

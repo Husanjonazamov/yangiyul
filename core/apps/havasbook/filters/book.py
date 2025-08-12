@@ -10,7 +10,6 @@ from core.apps.havasbook.serializers.book.currency import convert_currency
 
 class BookFilter(django_filters.FilterSet):
     search = django_filters.CharFilter(method='filter_by_search', label='Qidiruv')
-    gender = django_filters.CharFilter(method="filter_by_gender", label="Jins")
     brand = django_filters.NumberFilter(field_name='brand_id', label='Brend ID')
     category = django_filters.NumberFilter(field_name='subcategory__category_id', label='Kategoriya ID')
     subcategory = django_filters.NumberFilter(field_name='subcategory_id', label='Subkategoriya ID')
@@ -48,7 +47,7 @@ class BookFilter(django_filters.FilterSet):
     class Meta:
         model = BookModel
         fields = [
-            'search', 'gender', 'brand',
+            'search',  'brand',
             'category', 'subcategory',
             'min_price', 'max_price',
             'min_sold_count', 'max_sold_count',
@@ -68,10 +67,7 @@ class BookFilter(django_filters.FilterSet):
             Q(description__icontains=value)
         )
 
-    def filter_by_gender(self, queryset, name, value):
-        return queryset.filter(
-            Q(gender__gender=value) | Q(gender__gender="unisex")
-        )
+    
 
     def filter_min_price(self, queryset, name, value):
         try:

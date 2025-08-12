@@ -7,7 +7,6 @@ from core.apps.havasbook.models.cart import CartitemModel, CartModel
 from django_core.serializers import AbstractTranslatedSerializer
 from core.apps.havasbook.models.book import CurrencyChoices
 from core.apps.havasbook.serializers.book.currency import BaseCurrencyPriceMixin
-from core.apps.havasbook.serializers.book.BookService import ProductServices as PS
 
 
 class BaseBookSerializer(AbstractTranslatedSerializer):

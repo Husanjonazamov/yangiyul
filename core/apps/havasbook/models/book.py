@@ -21,13 +21,7 @@ class CurrencyChoices(models.TextChoices):
 class BookModel(AbstractBaseModel):
     name = models.CharField(_("Название"), max_length=255)
     description = models.TextField(_("Описание товара"), null=True, blank=True)
-    gender = models.ForeignKey(
-        "havasbook.GenderModel",
-        on_delete=models.CASCADE,
-        blank=True,
-        null=True,
-        verbose_name=_("Пол")
-    )
+    
     brand = models.ForeignKey(
         "havasbook.BrandModel",
         on_delete=models.CASCADE,

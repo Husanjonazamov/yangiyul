@@ -80,14 +80,7 @@ PAGES = [
                     request.user, "view_user"
                 ),
             },
-            {
-                "title": _("Пол"),
-                "icon": "wc",
-                "link": reverse_lazy("admin:havasbook_gendermodel_changelist"),
-                "permission": lambda request: user_has_group_or_permission(
-                    request.user, "view_user"
-                ),
-            },
+          
             {
                 "title": _("Бренд"),
                 "icon": "storefront",
