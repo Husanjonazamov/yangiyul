@@ -16,7 +16,6 @@ class BaseBookSerializer(AbstractTranslatedSerializer):
     size = serializers.SerializerMethodField()
     # price = serializers.SerializerMethodField()
     # original_price = serializers.SerializerMethodField()
-    gender = serializers.SerializerMethodField()
     brand = serializers.SerializerMethodField()
     image = serializers.SerializerMethodField()
 
@@ -43,13 +42,11 @@ class BaseBookSerializer(AbstractTranslatedSerializer):
             'is_discount',
             'popular',
             'is_preorder',
-            'gender',
             "brand",
             'created_at',
         ]
         
-    def get_gender(self, obj):
-        return PS.get_gender(obj.gender)
+   
     
     def get_brand(self, obj):
         return PS.get_brand(obj.brand)
